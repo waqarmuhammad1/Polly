@@ -1,0 +1,207 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Polly: Data Integration and Analysis</title>
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Meddon">
+</head>
+
+<style>
+    nav .brand-logo {
+        color: white;
+        /* font-family: 'Meddon', cursive; */
+        margin: 5px 280px 2px 0;
+    }
+
+    /* img.resize {
+        max-width: 50%;
+        max-height: 100%;
+    } */
+    canvas {
+        background: #232323;
+        z-index: 1;
+    }
+
+    .typewriter h1 {
+        overflow: hidden;
+        /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid orange;
+        /* The typwriter cursor */
+        white-space: nowrap;
+        /* Keeps the content on a single line */
+        margin: 0 auto;
+        /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em;
+        z-index: 15;
+        font-size: 25px;
+        /* Adjust as needed */
+        animation:
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+    }
+
+    /* The typing effect */
+    @keyframes typing {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 100%
+        }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent
+        }
+
+        50% {
+            border-color: orange;
+        }
+    }
+
+    .center-modal {
+        display: flex;
+    }
+
+    .center-modal .modal {
+        position: absolute;
+        width: 30%;
+    }
+
+    i.icon-red {
+        color: red;
+    }
+</style>
+
+<body class="" style="overflow-x:hidden">
+
+    <nav>
+        <div class="nav-wrapper grey darken-3 ">
+            <a href="#" class="brand-logo">Polly: Data Integration and Analysis</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a id="regression">Regression Analysis</a></li>
+                <li><a id="classification" href="upload.html">Classification</a></li>
+                <!-- <li><a href="commingsoon.html">Natural Language Processing</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <canvas id="canvas">
+    </canvas>
+
+    <div class="typewriter" style="position:absolute; top:70px; left: 50px">
+        <h1 class="white-text">End to End analytics tool from <br> data proccessing to modeling and report
+            generation.</h1>
+    </div>
+
+    <div id="overlay-container" style="z-index:50; position: absolute;">
+        <div class="row">
+            <!-- data upload: https://www.dropbox.com/s/0vicuh4kw64lvrc/data_upload.mkv -->
+            <div class="col s4">
+                <div class="center promo">
+                    <video class="responsive-video" controls>
+                        <source src="demo-videos/data_upload.mkv" type="video/mp4">
+                    </video>
+                    <p class="promo-caption  white-text">Data upload</p>
+                    <p class="light center white-text ">We did most of the heavy lifting for you to provide a default
+                        stylings that
+                        incorporate our custom components.</p>
+                </div>
+
+            </div>
+            <div class="col s4">
+                <div class="center promo">
+                    <video class="responsive-video" controls>
+                        <source src="demo-videos/stats.mkv" type="video/mp4">
+                    </video>
+                    <p class="promo-caption white-text">Statistical Analysis</p>
+                    <p class="light center white-text">We did most of the heavy lifting for you to provide a default
+                        stylings that
+                        incorporate our custom components.</p>
+                </div>
+
+            </div>
+            <div class="col s4">
+                <div class="center promo">
+                    <video class="responsive-video" controls>
+                        <source src="demo-videos/algo_selection.mkv" type="video/mp4">
+                    </video>
+                    <p class="promo-caption white-text">Algorithm Selection</p>
+                    <p class="light center white-text">We did most of the heavy lifting for you to provide a default
+                        stylings that
+                        incorporate our custom components.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- data upload: https://www.dropbox.com/s/0vicuh4kw64lvrc/data_upload.mkv -->
+            <div class="col s4">
+                <div class="center promo">
+                    <video class="responsive-video" controls>
+                        <source src="demo-videos/algo_tune.mkv" type="video/mp4">
+                    </video>
+                    <p class="promo-caption white-text">Algorithm Tuning</p>
+                    <p class="light center white-text">We did most of the heavy lifting for you to provide a default
+                        stylings that
+                        incorporate our custom components.</p>
+                </div>
+
+            </div>
+            <div class="col s4">
+                <div class="center promo">
+                    <video class="responsive-video" controls>
+                        <source src="demo-videos/results.mkv" type="video/mp4">
+                    </video>
+                    <p class="promo-caption white-text">Results/Graphs</p>
+                    <p class="light center white-text">We did most of the heavy lifting for you to provide a default
+                        stylings that
+                        incorporate our custom components.</p>
+                </div>
+
+            </div>
+            <div class="col s4">
+                <div class="center promo">
+                    <video class="responsive-video" controls>
+                        <source src="demo-videos/full_video_regression.mkv" type="video/mp4">
+                    </video>
+                    <p class="promo-caption white-text">Data View</p>
+                    <p class="light center white-text">We did most of the heavy lifting for you to provide a default
+                        stylings that
+                        incorporate our custom components.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.slider').slider();
+        });
+
+    </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="controllers/tutorials.js"></script>
+</body>
+
+</html>

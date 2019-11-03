@@ -1,0 +1,370 @@
+<html lang="en">
+
+<head>
+    <title>Polly: Data Integration and Analysis</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css> -->
+    <link rel="stylesheet"
+        href="https://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+</head>
+
+
+<style>
+    .card .card-title.hidden {
+        text-indent: -9999px;
+    }
+
+    .card .card-image .card-badge {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        text-align: left;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        padding: 0.2em 24px 0.8em 24px;
+        color: #fff;
+        z-index: 2;
+    }
+
+    .card .card-image .card-badge .material-icons {
+        position: relative;
+        margin-right: 8px;
+        top: 7px;
+    }
+
+    .card .card-image .card-badge+.card-title {
+        padding-bottom: 66px;
+    }
+
+    .card.horizontal .card-image .card-badge {
+        text-align: center;
+        padding: 0.2em 0;
+    }
+
+    .card.horizontal .card-image .card-badge .material-icons {
+        display: none;
+    }
+
+    .card-action {
+        white-space: nowrap;
+    }
+
+    @import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+
+    .rwd-table {
+        margin: 1em 0;
+        min-width: 300px;
+    }
+
+    .rwd-table tr {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .rwd-table th {
+        display: none;
+    }
+
+    .rwd-table td {
+        display: block;
+    }
+
+    .rwd-table td:first-child {
+        padding-top: .5em;
+    }
+
+    .rwd-table td:last-child {
+        padding-bottom: .5em;
+    }
+
+    .rwd-table td:before {
+        content: attr(data-th) ": ";
+        font-weight: bold;
+        width: 6.5em;
+        display: inline-block;
+    }
+
+    @media (min-width: 480px) {
+        .rwd-table td:before {
+            display: none;
+        }
+    }
+
+    .rwd-table th,
+    .rwd-table td {
+        text-align: left;
+    }
+
+    @media (min-width: 480px) {
+
+        .rwd-table th,
+        .rwd-table td {
+            display: table-cell;
+            padding: .25em .5em;
+        }
+
+        .rwd-table th:first-child,
+        .rwd-table td:first-child {
+            padding-left: 0;
+        }
+
+        .rwd-table th:last-child,
+        .rwd-table td:last-child {
+            padding-right: 0;
+        }
+    }
+
+    .rwd-table {
+        background: #424242;
+        color: #fff;
+        border-radius: .4em;
+        overflow: hidden;
+    }
+
+    .rwd-table tr {
+        border-color: #46637f;
+    }
+
+    .rwd-table th,
+    .rwd-table td {
+        margin: .5em 1em;
+    }
+
+    @media (min-width: 480px) {
+
+        .rwd-table th,
+        .rwd-table td {
+            padding: 1em !important;
+        }
+    }
+
+    .rwd-table th,
+    .rwd-table td:before {
+        color: #dd5;
+    }
+
+    .modal {
+        width: 75% !important;
+        height: 75% !important;
+    }
+
+    blockquote {
+        display: block;
+        background: #fff;
+        padding: 15px 20px 15px 45px;
+        margin: 0 0 20px;
+        position: relative;
+
+        /*Font*/
+        font-family: Georgia, serif;
+        font-size: 16px;
+        line-height: 1.2;
+        color: #666;
+        text-align: justify;
+
+        /*Borders - (Optional)*/
+        border-left: 15px solid #c76c0c;
+        border-right: 2px solid #c76c0c;
+
+        /*Box Shadow - (Optional)*/
+        -moz-box-shadow: 2px 2px 15px #ccc;
+        -webkit-box-shadow: 2px 2px 15px #ccc;
+        box-shadow: 2px 2px 15px #ccc;
+    }
+
+    blockquote::before {
+        content: "\201C";
+        /*Unicode for Left Double Quote*/
+
+        /*Font*/
+        font-family: Georgia, serif;
+        font-size: 60px;
+        font-weight: bold;
+        color: #999;
+
+        /*Positioning*/
+        position: absolute;
+        left: 10px;
+        top: 5px;
+    }
+
+    blockquote::after {
+        /*Reset to make sure*/
+        content: "";
+    }
+
+    blockquote a {
+        text-decoration: none;
+        background: #eee;
+        cursor: pointer;
+        padding: 0 3px;
+        color: #c76c0c;
+    }
+
+    blockquote a:hover {
+        color: #666;
+    }
+
+    blockquote em {
+        font-style: italic;
+    }
+
+    /*Specific styling*/
+    /* table {
+        display: inline-block;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    th {
+        font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        padding: 10px;
+        background: #373737;
+        color: #fff;
+    }
+
+    td {
+        padding: 10px;
+    } */
+</style>
+
+
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper grey darken-3">
+                    <a href="index.html" class="brand-logo">Polly: Data Integration and Analysis</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a id="logout">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container" style="position:relative;">
+            <!---------------------------------------------------------------------------------------------Functionalities Tabs  --------------------------------------------------------------------------------------------------------->
+            <div class="row">
+                <h3>Data Upload & Attribute Selection</h3>
+                <hr>
+                <div class="col s4 m4">
+                    <div class="card horizontal">
+
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h5>Add Data Source</h5>
+                                <hr>
+                                <p>User can upload excel, csv data files or connect with SQL remote data stores</p>
+                            </div>
+
+                            <div class="card-action">
+                                <!-- Modal Link Here -->
+                                <a class=" btn-floating waves-effect waves-light hoverable #01579b red  right modal-trigger"
+                                    href="#upload_modal"><i class="material-icons right">add</i>
+                                </a>
+                                <!-- Modal Button end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---------------------------------------------------------------------------------------------Functionalities Tabs END  --------------------------------------------------------------------------------------------------------->
+
+
+            <!-------------------------------------------------------------------------------------------- upload_modal Code Here-------------------------------------------------------------------------------------------------------------------->
+            <div id="upload_modal" class="modal grey darken-3">
+                <div class="modal-content">
+                    <h4 class="center white-text">Data Source</h4>
+                    <div class="divider red darken-2" style="margin-bottom: 1% !important"></div>
+                </div>
+                <div class="row">
+                    <div class="col s4">
+                        <div class="input-field col s12 white-text">
+                            <select id="ds">
+                                <option value="DEFAULT" selected disabled>Select Data Source</option>
+                                <option value="csv">PDF</option>
+                                <option value="excel">Excel</option>
+                                <option value="oracle">DOCX</option>
+                                <option value="mssql">PPT</option>
+                                <option value="mysql">JPG</option>
+                                <option value="mysql">JPEG</option>
+                                <option value="mysql">PNG</option>
+                            </select>
+                            <label class="white-text">Data Source</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-------------------------------------------------------------------------------------------------- DB OPTIONS ------------------------------------------------------------------------------->
+                
+                <!-------------------------------------------------------------------------------------------------- OPTIONS END ------------------------------------------------------------------------------>
+
+                <!-------------------------------------------------------------------------------------------------- FILE OPTIONS ------------------------------------------------------------------------------->
+                <div class="row" id="file" style="display:none">
+                    <div class="col s12">
+                        <p class="white-text">&nbsp;&nbsp;<b>File size upto 16MB allowed</b></p>
+                        <form id="upload-file" method="post" enctype="multipart/form-data">
+                            <div class="file-field input-field">
+                                <div
+                                    class="btn waves-effect waves-light btn-round waves-effect waves-light hoverable red darken-2">
+                                    <span>File</span>
+                                    <input type="file" name="file" id="the-file">
+                                </div>
+
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col s6 offset-s3 center">
+                                <button
+                                    class="modal-close btn waves-effect waves-light btn-round waves-effect waves-light hoverable red darken-2"
+                                    id="upload-file-btn" type="button">Upload
+                                </button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+                <!-------------------------------------------------------------------------------------------------- OPTIONS END -------------------------------------------------------------------------------->
+            </div>
+            <!-------------------------------------------------------------------------------------------- upload_modal Code End-------------------------------------------------------------------------------------------------------------------->
+        </div>
+        
+        <div class="row">
+            <div class="col 12 right">
+                <a id="set_selected" class="btn-floating btn-large waves-effect waves-light red right"><i
+                        class="material-icons">arrow_right</i></a>
+
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+    <script type="text/javascript" src="controllers/HSA.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+    <script src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
+</body>
+
+
+</html>

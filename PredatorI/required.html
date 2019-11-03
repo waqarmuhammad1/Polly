@@ -1,0 +1,157 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Polly: Data Integration and Analysis</title>
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Meddon">
+</head>
+
+<style>
+    nav .brand-logo {
+        color: white;
+        /* font-family: 'Meddon', cursive; */
+        margin: 5px 280px 2px 0;
+    }
+
+    /* img.resize {
+        max-width: 50%;
+        max-height: 100%;
+    } */
+    canvas {
+        background: #232323;
+        z-index: 1;
+    }
+
+    .typewriter h1 {
+        overflow: hidden;
+        /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid orange;
+        /* The typwriter cursor */
+        white-space: nowrap;
+        /* Keeps the content on a single line */
+        margin: 0 auto;
+        /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em;
+        z-index: 15;
+        font-size: 30px;
+        /* Adjust as needed */
+        animation:
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+    }
+
+    /* The typing effect */
+    @keyframes typing {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 100%
+        }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent
+        }
+
+        50% {
+            border-color: orange;
+        }
+    }
+
+    .center-modal {
+        display: flex;
+    }
+
+    .center-modal .modal {
+        position: absolute;
+        width: 30%;
+    }
+
+    i.icon-red {
+        color: red;
+    }
+</style>
+
+<body class="" style="overflow-x:hidden; overflow-y: hidden">
+
+    <nav>
+        <div class="nav-wrapper grey darken-3 ">
+            <a href="#" class="brand-logo">Polly: Data Integration and Analysis</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <canvas id="canvas">
+    </canvas>
+
+    <div id="canvas_items" style="position:absolute; height: 500px; width: 600px;">
+        <div class="row">
+            <div class="col s12">
+                <div class="typewriter" style="position:absolute;">
+                    <h1 class="white-text">Login Required to continue.<br></h1>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col s12">
+                <span id="desc" style="z-index:12; position:absolute; font-size: 16px" class="white-text">This system provides
+                    the
+                    user
+                    ability to import data from multiple sources <br> like sql-databases excel and comma separated
+                    files, and
+                    empower<br> user to perform all data analysis task from data processing to modeling<br> and report
+                    generation at
+                    one place</span>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col s4">
+                <a class="waves-effect waves-light btn-large red" id="register"
+                    style="z-index:10; position:absolute; height: 50px; width: 150px">Register</a>
+            </div>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn-large red" id="login"
+                    style="z-index:11; position:absolute; height: 50px; width: 150px">Login </a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="controllers/required.js"></script>
+</body>
+
+</html>

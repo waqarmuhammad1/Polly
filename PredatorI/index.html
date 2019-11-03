@@ -1,0 +1,279 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Polly: Data Integration and Analysis</title>
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Meddon">
+</head>
+
+<style>
+    nav .brand-logo {
+        color: white;
+        /* font-family: 'Meddon', cursive; */
+        margin: 5px 280px 2px 0;
+    }
+
+    /* img.resize {
+        max-width: 50%;
+        max-height: 100%;
+    } */
+    canvas {
+        background: #232323;
+        z-index: 1;
+    }
+
+    .typewriter h1 {
+        overflow: hidden;
+        /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid orange;
+        /* The typwriter cursor */
+        white-space: nowrap;
+        /* Keeps the content on a single line */
+        margin: 0 auto;
+        /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em;
+        z-index: 15;
+        font-size: 30px;
+        /* Adjust as needed */
+        animation:
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+    }
+
+    /* The typing effect */
+    @keyframes typing {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 100%
+        }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent
+        }
+
+        50% {
+            border-color: orange;
+        }
+    }
+
+    .center-modal {
+        display: flex;
+    }
+
+    .center-modal .modal {
+        position: absolute;
+        width: 30%;
+    }
+
+    i.icon-red {
+        color: red;
+    }
+</style>
+
+<body class="" style="overflow-x:hidden">
+
+    <nav>
+        <div class="nav-wrapper grey darken-3 ">
+            <a href="#" class="brand-logo">Polly: Data Integration and Analysis</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a id="regression" >Regression Analysis</a></li>
+                <li><a id="classification" href="upload.html">Classification</a></li>
+                <!-- <li><a href="commingsoon.html">Natural Language Processing</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <canvas id="canvas">
+    </canvas>
+
+    <div class="typewriter" style="position:absolute; top:70px; left: 50px">
+        <h1 class="white-text">End to End analytics tool from <br> data proccessing to modeling <br> and report
+            generation. <br></h1>
+    </div>
+
+    <div id="canvas_items" style="position:absolute; height: 500px; width: 600px;">
+        <div class="row">
+            <div class="col s12">
+                <span id="desc" style="z-index:12; position:absolute; font-size: 16px" class="white-text">This system provides
+                    the
+                    user
+                    ability to import data from multiple sources <br> like sql-databases excel and comma separated
+                    files, and
+                    empower<br> user to perform all data analysis task from data processing to modeling<br> and report
+                    generation at
+                    one place</span>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col s4">
+                <a class="waves-effect waves-light btn-large red" id="register"
+                    style="z-index:10; position:absolute; height: 50px; width: 150px">Register</a>
+            </div>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn-large red" id="login"
+                    style="z-index:11; position:absolute; height: 50px; width: 150px">Login </a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col s4">
+            <div class="center promo ">
+                <i class="material-icons large">flash_on</i>
+                <p class="promo-caption ">Rapid analysis</p>
+                <p class="light center ">We did most of the heavy lifting for you to provide a platform <br> where you can just focus on analysis and don't have to worry about anything else</p>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="center promo ">
+                <i class="material-icons large">group</i>
+                <p class="promo-caption ">User Experience Focused</p>
+                <p class="light center ">As compared to most of the available tools, <br> we focused to make it as simple and interactive as possible to use, <br> you don't have to be rocket scientist to use it.</p>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="center promo ">
+                <i class="material-icons large">settings</i>
+                <p class="promo-caption ">Easy to work with</p>
+                <p class="light center ">We provide options to connect with common data sources  <br> like excel, csv, sql database, and most common data processing methods <br> which can be applied to your data with just one click.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="center-modal">
+        <div id="modal1" class="modal  grey darken-2">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col s10">
+                        <h3 class="white-text">Signup</h3>
+                    </div>
+                    <div class="col s2">
+                        <i class="material-icons medium right icon-red">person_add</i>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="first_name" type="text" class="validate white-text">
+                                <label for="first_name" class="white-text">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate white-text">
+                                <label for="last_name" class="white-text">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="username_reg" type="text" class="validate white-text">
+                                <label for="username_reg" class="white-text">Username</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="password_reg" type="password" class="validate white-text">
+                                <label for="password_reg" class="white-text">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate white-text">
+                                <label for="email" class="white-text">Email</label>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col s12 center">
+                        <a id="register_reg"
+                            class=" waves-effect waves-green btn left red">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class=" modal-action modal-close waves-effect waves-green btn right red">cancel</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="center-modal">
+        <div id="modal2" class="modal  grey darken-2">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col s10">
+                        <h3 class="white-text">Sign in</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="username" type="text" class="validate white-text">
+                                <label for="username" class="white-text">User Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate white-text">
+                                <label for="password" class="white-text">Password</label>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col s12 center">
+                        <a id="sign_in" class="waves-effect waves-green btn left red">sign
+                            in</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class=" modal-action modal-close waves-effect waves-green btn right red">cancel</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.slider').slider();
+        });
+
+    </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="controllers/landing.js"></script>
+</body>
+
+</html>
