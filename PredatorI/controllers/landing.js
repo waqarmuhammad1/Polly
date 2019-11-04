@@ -167,7 +167,7 @@ $(document).ready(function () {
             'analysis_mode': 'regression'
         });
         console.log(resp_obj)
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/set_analysis_mode", 'application/json', resp_obj, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/set_analysis_mode", 'application/json', resp_obj, function (branches) {
             window.location = 'upload.html'
         });
 
@@ -181,7 +181,7 @@ $(document).ready(function () {
             'analysis_mode': 'classification'
         });
         console.log(resp_obj)
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/set_analysis_mode", 'application/json', resp_obj, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/set_analysis_mode", 'application/json', resp_obj, function (branches) {
             window.location = 'upload.html'
 
         });
@@ -220,7 +220,7 @@ $(document).ready(function () {
             'password': password
         });
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/auth", 'application/json', request, function (response) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/auth", 'application/json', request, function (response) {
             
             var toastHTML = '<span>' + response + '</span>';
             M.toast({ html: toastHTML }, 2000);
@@ -264,7 +264,7 @@ $(document).ready(function () {
             "email": email
         });
         console.log(request)
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/register", 'application/json', request, function (response) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/register", 'application/json', request, function (response) {
             
             var toastHTML = '<span>' + response + '</span>';
             M.toast({ html: toastHTML }, 2000);

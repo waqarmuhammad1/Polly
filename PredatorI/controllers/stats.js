@@ -22,7 +22,7 @@ $(document).ready(function () {
     $("#view_change").click(function () {
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_processed_data",
+            url: "http://3.84.88.106:5000/get_processed_data",
             data: null,
             contentType: false,
             cache: false,
@@ -54,7 +54,7 @@ $(document).ready(function () {
     });
 
     $("#confirm_yes").click(function () {
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/overwrite_existing_data", 'application/json', null, function (response) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/overwrite_existing_data", 'application/json', null, function (response) {
             var success = response['success']
 
             if (success) {
@@ -84,7 +84,7 @@ $(document).ready(function () {
     function get_selected_data() {
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_selected_data",
+            url: "http://3.84.88.106:5000/get_selected_data",
             data: null,
             contentType: false,
             cache: false,
@@ -124,7 +124,7 @@ $(document).ready(function () {
     function get_data_description() {
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_data_description",
+            url: "http://3.84.88.106:5000/get_data_description",
             data: null,
             contentType: false,
             cache: false,
@@ -159,7 +159,7 @@ $(document).ready(function () {
     function get_train_vars() {
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_train_vars",
+            url: "http://3.84.88.106:5000/get_train_vars",
             data: null,
             contentType: false,
             cache: false,
@@ -188,7 +188,7 @@ $(document).ready(function () {
     function get_target_vars() {
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_target_vars",
+            url: "http://3.84.88.106:5000/get_target_vars",
             data: null,
             contentType: false,
             cache: false,
@@ -217,7 +217,7 @@ $(document).ready(function () {
     function get_data_correlation() {
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_data_correlation",
+            url: "http://3.84.88.106:5000/get_data_correlation",
             data: null,
             contentType: false,
             cache: false,
@@ -243,7 +243,7 @@ $(document).ready(function () {
 
     function get_selected_columns() {
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_selected_columns", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_selected_columns", 'application/json', null, function (branches) {
 
 
             data = branches['selected_columns']
@@ -277,7 +277,7 @@ $(document).ready(function () {
     }
 
     function get_string_columns() {
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_string_columns", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_string_columns", 'application/json', null, function (branches) {
 
             data = branches['string_columns']
             $("#encod").empty().html(' ');
@@ -297,7 +297,7 @@ $(document).ready(function () {
     }
 
     function get_file_name() {
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_download_file_name", 'application/json', null, function (response) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_download_file_name", 'application/json', null, function (response) {
 
 
             file_name = response;
@@ -306,7 +306,7 @@ $(document).ready(function () {
     }
 
     function get_applied_methods() {
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_applied_methods", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_applied_methods", 'application/json', null, function (branches) {
             console.log(data)
             try {
                 data = branches['applied_methods']
@@ -327,7 +327,7 @@ $(document).ready(function () {
         window.location = 'index.html'
     });
     function get_attributes_encoded() {
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_attributes_encoded", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_attributes_encoded", 'application/json', null, function (branches) {
 
             try {
                 data = branches['attributes_encoded']
@@ -366,7 +366,7 @@ $(document).ready(function () {
 
         });
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_columns_to_filter", 'application/json', details, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_columns_to_filter", 'application/json', details, function (branches) {
 
 
             data = branches['columns_to_filter']
@@ -400,7 +400,7 @@ $(document).ready(function () {
         })
         console.log(details)
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/process_null_columns", 'application/json', details, function (data) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/process_null_columns", 'application/json', details, function (data) {
 
 
             if (data.includes('Error:')) {
@@ -441,7 +441,7 @@ $(document).ready(function () {
             "selected_column": selected_column
         })
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/process_attribute_encoding", 'application/json', details, function (data) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/process_attribute_encoding", 'application/json', details, function (data) {
 
 
             if (data.includes('Error:')) {
@@ -486,7 +486,7 @@ $(document).ready(function () {
 
         });
         console.log(details)
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_graph_data", 'application/json', details, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_graph_data", 'application/json', details, function (branches) {
 
             if (typeof branches == undefined) {
 
@@ -527,7 +527,7 @@ $(document).ready(function () {
 
         });
         console.log(details)
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_graph_data", 'application/json', details, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_graph_data", 'application/json', details, function (branches) {
 
             if (typeof branches == undefined) {
 
@@ -577,7 +577,7 @@ $(document).ready(function () {
 
         });
         console.log(details)
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_graph_data", 'application/json', details, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_graph_data", 'application/json', details, function (branches) {
 
             if (typeof branches == undefined) {
 

@@ -79,7 +79,7 @@ $(document).ready(function () {
         file_name = file.name.replace(/\.[^/.]+$/, "");
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/uploader",
+            url: "http://3.84.88.106:5000/uploader",
             data: form_data,
             contentType: false,
             cache: false,
@@ -110,7 +110,7 @@ $(document).ready(function () {
     function populate_data() {
         if (selected_source == 'excel') {
 
-            ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_sheets", true, 'application/json', null, function (response) {
+            ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_sheets", true, 'application/json', null, function (response) {
                 var sheets = response['sheets']
                 $("#sheet_select option").remove()
                 var sheet_meta = create_sheet_options(sheets);
@@ -128,7 +128,7 @@ $(document).ready(function () {
                 'selected_table': null
             })
 
-            ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_columns", true, 'application/json', request, function (response) {
+            ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_columns", true, 'application/json', request, function (response) {
 
                 $("#training_vars option").remove();
                 $("#target_vars option").remove();
@@ -139,7 +139,7 @@ $(document).ready(function () {
 
             });
 
-            ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_data", true, 'application/json', request, function (response_data) {
+            ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_data", true, 'application/json', request, function (response_data) {
 
 
 
@@ -161,7 +161,7 @@ $(document).ready(function () {
         });
 
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_columns", true, 'application/json', request, function (response) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_columns", true, 'application/json', request, function (response) {
 
             $("#training_vars option").remove();
             $("#target_vars option").remove();
@@ -174,7 +174,7 @@ $(document).ready(function () {
         });
 
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_data", true, 'application/json', request, function (response_data) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_data", true, 'application/json', request, function (response_data) {
 
             var data = response_data['data'];
 
@@ -186,7 +186,7 @@ $(document).ready(function () {
 
     $("#set_selected").click(function () {
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/set_selected_data", true, 'application/json', null, function (response_data) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/set_selected_data", true, 'application/json', null, function (response_data) {
             console.log(response_data)
             if(response_data == true)
                 location.replace('stats.html')
@@ -301,7 +301,7 @@ $(document).ready(function () {
         })
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/read_database",
+            url: "http://3.84.88.106:5000/read_database",
             data: request,
             contentType: 'application/json',
             cache: false,
@@ -341,7 +341,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_database_tables",
+            url: "http://3.84.88.106:5000/get_database_tables",
             data: request,
             contentType: 'application/json',
             cache: false,
@@ -369,7 +369,7 @@ $(document).ready(function () {
                 M.toast({ html: toastHTML }, 2000);
             }
         });
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_columns", true, 'application/json', request, function (response) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_columns", true, 'application/json', request, function (response) {
 
             $("#training_vars option").remove();
             $("#target_vars option").remove();
@@ -391,7 +391,7 @@ $(document).ready(function () {
             'table_name': table_name
         });
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/read_table", true, 'application/json', request, function (response_data) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/read_table", true, 'application/json', request, function (response_data) {
 
             var data = response_data['data'];
 
@@ -414,7 +414,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/update_train_vars",
+            url: "http://3.84.88.106:5000/update_train_vars",
             data: request,
             contentType: 'application/json',
             cache: false,
@@ -451,7 +451,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/update_target_vars",
+            url: "http://3.84.88.106:5000/update_target_vars",
             data: request,
             contentType: 'application/json',
             cache: false,

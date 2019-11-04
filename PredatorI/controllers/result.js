@@ -24,7 +24,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_train_vars",
+            url: "http://3.84.88.106:5000/get_train_vars",
             data: null,
             contentType: false,
             cache: false,
@@ -51,7 +51,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_target_vars",
+            url: "http://3.84.88.106:5000/get_target_vars",
             data: null,
             contentType: false,
             cache: false,
@@ -76,7 +76,7 @@ $(document).ready(function () {
             }
         });
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_applied_methods", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_applied_methods", 'application/json', null, function (branches) {
 
             data = branches['applied_methods']
             var child_elements = create_badges(data, 'deep-orange accent-3')
@@ -85,7 +85,7 @@ $(document).ready(function () {
 
         });
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_attributes_encoded", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_attributes_encoded", 'application/json', null, function (branches) {
 
             data = branches['attributes_encoded']
             console.log(data)
@@ -95,14 +95,14 @@ $(document).ready(function () {
 
         });
         var analysis_mode = null;
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_analysis_mode", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_analysis_mode", 'application/json', null, function (branches) {
 
 
             analysis_mode = branches['analysis_mode']
             console.log(analysis_mode)
 
         });
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_algorithm_results", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_algorithm_results", 'application/json', null, function (branches) {
 
             console.log(branches)
             var data = branches['algorithm_results'];

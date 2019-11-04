@@ -27,7 +27,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_train_vars",
+            url: "http://3.84.88.106:5000/get_train_vars",
             data: null,
             contentType: false,
             cache: false,
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5000/get_target_vars",
+            url: "http://3.84.88.106:5000/get_target_vars",
             data: null,
             contentType: false,
             cache: false,
@@ -79,7 +79,7 @@ $(document).ready(function () {
             }
         });
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_applied_methods", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_applied_methods", 'application/json', null, function (branches) {
 
             data = branches['applied_methods']
             var child_elements = create_badges(data, 'deep-orange accent-3')
@@ -88,7 +88,7 @@ $(document).ready(function () {
 
         });
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_attributes_encoded", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_attributes_encoded", 'application/json', null, function (branches) {
 
             data = branches['attributes_encoded']
             console.log(data)
@@ -99,7 +99,7 @@ $(document).ready(function () {
         });
 
 
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_algorithm_params", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_algorithm_params", 'application/json', null, function (branches) {
 
 
             var algo_params = branches['algorithm_params'];
@@ -173,7 +173,7 @@ $(document).ready(function () {
 
         var tune_params = new Object();
         var got_error = false
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/get_algorithm_params", 'application/json', null, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/get_algorithm_params", 'application/json', null, function (branches) {
 
             var algo_params = branches['algorithm_params'];
 
@@ -230,7 +230,7 @@ $(document).ready(function () {
                 });
                 // console.log('calling apply algos')
                 console.log(tune_params)
-                ajaxCallsFunc('POST', "http://0.0.0.0:5000/apply_selected_algorithms", 'application/json', resp_obj, function (branches) {
+                ajaxCallsFunc('POST', "http://3.84.88.106:5000/apply_selected_algorithms", 'application/json', resp_obj, function (branches) {
 
                     var toastHTML = '<span>' + branches + '</span>';
                     M.toast({ html: toastHTML }, 2000);

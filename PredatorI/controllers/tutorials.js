@@ -123,7 +123,7 @@ $(document).ready(function () {
             'analysis_mode': 'regression'
         });
         console.log(resp_obj)
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/set_analysis_mode", 'application/json', resp_obj, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/set_analysis_mode", 'application/json', resp_obj, function (branches) {
             window.location = 'upload.html'
         });
 
@@ -137,7 +137,7 @@ $(document).ready(function () {
             'analysis_mode': 'classification'
         });
         console.log(resp_obj)
-        ajaxCallsFunc('POST', "http://0.0.0.0:5000/set_analysis_mode", 'application/json', resp_obj, function (branches) {
+        ajaxCallsFunc('POST', "http://3.84.88.106:5000/set_analysis_mode", 'application/json', resp_obj, function (branches) {
 
 
         });

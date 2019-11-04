@@ -40,7 +40,7 @@ $(document).ready(function () {
         file_name = file.name.replace(/\.[^/.]+$/, "");
         $.ajax({
             type: 'POST',
-            url: "http://0.0.0.0:5001/uploader",
+            url: "http://3.84.88.106:5001/uploader",
             data: form_data,
             contentType: false,
             cache: false,
